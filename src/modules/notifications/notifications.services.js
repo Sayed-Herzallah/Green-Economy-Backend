@@ -11,23 +11,44 @@ function relativeTime(date) {
 
 // GET /notifications
 export const getAllNotifications = async (req, res, next) => {
-  const notifications = await notificationModel.find().sort({ createdAt: -1 }).lean()
-  const result = notifications.map(n => ({ ...n, id: n._id, time: relativeTime(n.createdAt) }))
+  const notifications = await notificationModel
+    .find({ user: req.user._id })
+    .sort({ createdAt: -1 })
+    .lean()
+  const result = notifications.map(n => ({
+    ...n,
+    id: n._id,
+    time: relativeTime(n.createdAt)
+  }))
   return res.status(200).json({ success: true, result })
 }
-
 // PATCH /notifications/mark-all-read
 export const markAllRead = async (req, res, next) => {
-  await notificationModel.updateMany({}, { read: true })
-  return res.status(200).json({ success: true, message: "All notifications marked as read" })
+  await notificationModel.updateMany(
+    { user: req.user._id },
+    { read: true }
+  )
+  return res.status(200).json({
+    success: true,
+    message: "All notifications marked as read"
+  })
 }
-
 // PATCH /notifications/:id/read
 export const markOneRead = async (req, res, next) => {
-  const notification = await notificationModel.findByIdAndUpdate(
-    req.params.id, { read: true }, { new: true }
+  const notification = await notificationModel.findOneAndUpdate(
+    {
+      _id: req.params.id,
+      user: req.user._id
+    },
+    { read: true },
+    { returnDocument: "after" }
   )
-  if (!notification) return next(new Error("Notification not found", { cause: 404 }))
-  return res.status(200).json({ success: true, result: notification })
-}
 
+  if (!notification)
+    return next(new Error("Notification not found", { cause: 404 }))
+
+  return res.status(200).json({
+    success: true,
+    result: notification
+  })
+}

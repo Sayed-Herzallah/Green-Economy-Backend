@@ -1,4 +1,4 @@
-import cors                  from "cors"
+import cors from "cors"
 import connectDB              from "./src/database/connect.db.js"
 import { notFoundHandler }    from "./src/utils/errorhandler/notFoundHandler.js"
 import { globalErrorHandler } from "./src/utils/errorhandler/globalErrorHandler.js"
@@ -8,7 +8,6 @@ import projectsRouter         from "./src/modules/projects/projects.controller.j
 import reportsRouter          from "./src/modules/reports/reports.controller.js"
 import notificationsRouter    from "./src/modules/notifications/notifications.controller.js"
 import settingsRouter         from "./src/modules/settings/settings.controller.js"
-
 export const bootstrap = async (app, express) => {
     app.use(express.json())
     app.use(cors())

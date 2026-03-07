@@ -43,6 +43,11 @@ const seedReports = [
     { titleEn: "December 2025", titleAr: "ديسمبر 2025", type: "Annual",    size: "15.8 MB", downloadUrl: SAMPLE_PDF },
     { titleEn: "November 2025", titleAr: "نوفمبر 2025", type: "Monthly",   size: "2.1 MB",  downloadUrl: SAMPLE_PDF },
     { titleEn: "Q3 2025",       titleAr: "الربع الثالث 2025", type: "Quarterly", size: "5.3 MB",  downloadUrl: SAMPLE_PDF },
+    {
+        titleEn:"Q2 2025", titleAr:"الربع الثاني 2025", type:"Quarterly", size:"4.1 MB", downloadUrl: SAMPLE_PDF
+    },{
+        titleEn:"Q1 2025", titleAr:"الربع الاول 2025", type:"Quarterly", size:"3.9 MB", downloadUrl: SAMPLE_PDF
+    }
 ]
 
 const seedNotifications = [
