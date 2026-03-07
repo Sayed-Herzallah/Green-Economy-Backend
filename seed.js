@@ -93,9 +93,6 @@ async function seed() {
 
     } catch (err) {
         console.error("❌ Seed failed:", err.message)
-    }finally {
-        await mongoose.disconnect()
-        console.log("✅ Disconnected from MongoDB")
     }
 }
 
