@@ -95,5 +95,5 @@ async function seed() {
         console.error("❌ Seed failed:", err.message)
     }
 }
-
 seed()
+
