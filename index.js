@@ -13,7 +13,7 @@
 //     console.log(`✅ Green Economy Server running on port ${port}`)
 // })
 import express from "express";
-import { bootstrap } from "./src/app.controller.js";
+import { bootstrap } from "./app.controller.js";
 
 const app = express();
 app.use(express.json());
