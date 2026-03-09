@@ -22,6 +22,7 @@ app.use("/api/reports",       reportsRouter)
 app.use("/api/notifications", notificationsRouter)
 app.use("/api/settings",      settingsRouter)
     // ========== Error Handlers ==============
-    app.use("/{*path}", notFoundHandler)
+    // app.use("/{*path}", notFoundHandler)
+    app.use(notFoundHandler)
     app.use(globalErrorHandler)
 }
