@@ -45,7 +45,7 @@ const seedProjects = [
 ]
 
 const SAMPLE_PDF = "https://www.w3.org/WAI/WCAG21/Techniques/pdf/PDF1"
-
+// all reports
 const seedReports = [
     { titleEn: "January 2026",  titleAr: "يناير 2026",  type: "Monthly",   size: "2.4 MB",  downloadUrl: SAMPLE_PDF },
     { titleEn: "December 2025", titleAr: "ديسمبر 2025", type: "Annual",    size: "15.8 MB", downloadUrl: SAMPLE_PDF },
