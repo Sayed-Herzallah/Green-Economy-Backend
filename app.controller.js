@@ -15,12 +15,12 @@ export const bootstrap = async (app, express) => {
     await connectDB()
 
     // ========== Routers ==============
-app.use("/api/auth",          authRouter)
-app.use("/api/dashboard",     dashboardRouter)
-app.use("/api/projects",      projectsRouter)
-app.use("/api/reports",       reportsRouter)
-app.use("/api/notifications", notificationsRouter)
-app.use("/api/settings",      settingsRouter)
+app.use("/auth",          authRouter)
+app.use("/dashboard",     dashboardRouter)
+app.use("/projects",      projectsRouter)
+app.use("/reports",       reportsRouter)
+app.use("/notifications", notificationsRouter)
+app.use("/settings",      settingsRouter)
     // ========== Error Handlers ==============
     // app.use("/{*path}", notFoundHandler)
     app.use(notFoundHandler)
